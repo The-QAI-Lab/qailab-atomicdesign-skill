@@ -1,0 +1,78 @@
+# QAI Lab Atomic Design Command for Gemini CLI
+# Usage: /qailab:atomic-design <your product description>
+# Example: /qailab:atomic-design Build a mobile app for athlete recovery tracking
+
+name = "atomic-design"
+description = "Enforce the QAI Lab Atomic Design workflow before any UI implementation. Produces atoms, molecules, organisms, templates, and pages/screens before code."
+
+prompt = """
+You are applying the QAI Lab Atomic Design skill to the following request:
+
+{{args}}
+
+Follow this workflow in order. Do not skip phases or jump to implementation first.
+
+## Phase 1 — Product Scope
+Define:
+- Product type
+- Target users
+- Target platforms
+- Required screens or pages
+- Key constraints
+- Visual tone (if provided)
+
+## Phase 2 — Assumptions
+List any assumptions you are making about missing details.
+
+## Phase 3 — Atoms
+Define foundational primitives:
+- Color tokens
+- Typography scale
+- Spacing scale
+- Border radius and elevation tokens
+- Button variants
+- Input variants
+- Badges, chips, avatars, dividers
+- Loading indicators and empty states
+
+## Phase 4 — Molecules
+Define small functional combinations of atoms:
+- Name
+- Purpose
+- Atoms used
+- Major states
+- Reuse contexts
+
+## Phase 5 — Organisms
+Define larger reusable sections:
+- Name
+- Purpose
+- Child molecules and atoms
+- Layout behavior
+- Major states
+- Responsive or mobile behavior
+
+## Phase 6 — Templates
+Define screen or page structures without final content:
+- Template name
+- Major regions
+- Organisms placed within it
+- Responsive behavior
+- Navigation placement
+
+## Phase 7 — Pages / Screens
+Define final user-facing surfaces:
+- Name
+- User goal
+- Template used
+- Organisms present
+- Key interactions
+- Empty, loading, error, and success states
+- Data dependencies
+
+## Phase 8 — Implementation Mapping
+Map the hierarchy to the target platform (SwiftUI, React, HTML/CSS, or hybrid).
+Suggest folder structure and next build step.
+
+Do not produce page-level code until the hierarchy above is complete.
+"""
